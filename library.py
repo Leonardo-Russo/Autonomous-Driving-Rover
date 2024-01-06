@@ -31,6 +31,16 @@ def get_indices(x0, y0, X, Y, mapRes):
     return i, j
 
 
+def check_obstacles(map_indices, obstacleMap):
+    '''
+    Description: this function checks for the presence of obstacles in the provided indices.
+    '''
+    for i, j in map_indices:
+        if obstacleMap[i, j] == 255:
+            return True  # Obstacle found
+    return False  # No obstacle
+
+
 def plot_map(map_image, Xvec, Yvec):
 
     # Plotting the map of the environment in grayscale
@@ -39,6 +49,16 @@ def plot_map(map_image, Xvec, Yvec):
     plt.grid(True)
     plt.xlabel('X')
     plt.ylabel('Y')
+
+
+def days2sec(days):
+    
+    return days * 24 * 60**2
+
+
+def sec2days(sec):
+
+    return sec / (24 * 60**2)
 
 
 def Move2Pose(R, K=[1e-2, 2, -10]):
@@ -60,6 +80,14 @@ def Move2Pose(R, K=[1e-2, 2, -10]):
     v = Krho * rho
     omega = Kalpha * alpha + Kbeta * beta
 
+    # Set Control Constraints
+    v_max = 4e-2    # m/s - max speed
+    
+    if v > v_max:
+        v = v_max
+
+    # print(v, omega)
+        
     return v, omega
 
 
