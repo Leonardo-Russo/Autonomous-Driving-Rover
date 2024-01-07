@@ -21,14 +21,13 @@ def load_data(filename='Data/exercise.mat'):
 
 
 
-def get_indices(x0, y0, X, Y, mapRes):
+def get_indices(point, X, Y, mapRes):
 
     # Compute indices
-    j = int((x0 - X[0, 0] + mapRes) / mapRes) - 1   # column index
-    i = int((Y[0, 0] - y0 + mapRes) / mapRes) - 1   # row index
+    j = int((point[0] - X[0, 0] + mapRes) / mapRes) - 1   # column index
+    i = int((Y[0, 0] - point[1] + mapRes) / mapRes) - 1   # row index
 
-
-    return i, j
+    return np.array([i, j])
 
 
 def check_obstacles(map_indices, obstacleMap):
