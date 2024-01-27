@@ -16,6 +16,10 @@ def load_data(filename='Data/exercise.mat'):
     Xvec = data['Xvec']
     Yvec = data['Yvec']
 
+    # Squeeze Xvec and Yvec -> both these variables must be one-dimensional vectors
+    Xvec = np.squeeze(Xvec)
+    Yvec = np.squeeze(Yvec)
+
 
     return X, Y, map_image, obstacleMap, xLM, yLM, Xvec, Yvec
 
