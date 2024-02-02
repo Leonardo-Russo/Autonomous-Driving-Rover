@@ -50,8 +50,8 @@ def plot_map(map_image, Xvec, Yvec):
     plt.imshow(map_image, cmap='gray', extent=(Xvec[0], Xvec[-1], Yvec[-1], Yvec[0]))
     plt.axis('on')
     plt.grid(True)
-    plt.xlabel('X')
-    plt.ylabel('Y')
+    plt.xlabel(r'$x \ [m]$')
+    plt.ylabel(r'$y \ [m]$')
 
 
 def days2sec(days):
