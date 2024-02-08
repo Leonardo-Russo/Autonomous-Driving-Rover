@@ -49,7 +49,6 @@ def plot_map(map_image, Xvec, Yvec):
     # Plotting the map of the environment in grayscale
     plt.imshow(map_image, cmap='gray', extent=(Xvec[0], Xvec[-1], Yvec[-1], Yvec[0]))
     plt.axis('on')
-    plt.grid(True)
     plt.xlabel(r'$x \ [m]$')
     plt.ylabel(r'$y \ [m]$')
 
